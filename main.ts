@@ -108,8 +108,8 @@ bot.command(instructList, async (ctx: any) => {
     text,
     from: { id: chatId },
   } = ctx.message
-
-  const inviteUrl = `${miniAppUrl}?startapp=chat_str${encode(chatId)}`
+  const str = encode(`id=${chatId}`)
+  const inviteUrl = `${miniAppUrl}?startapp=p_str${str}`
   console.log('【消息信息】', ctx.message)
   console.log('【消息来源】', chatId)
   console.log('【邀请链接】', inviteUrl)
