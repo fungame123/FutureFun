@@ -8,6 +8,7 @@ import { Bot, InlineKeyboard } from 'https://deno.land/x/grammy@v1.24.0/mod.ts'
 // const homeUrl = 'https://test-h5.ximi.world/' // 主页
 // const walletUrl = 'https://test-h5.ximi.world/pages/wallet' // 钱包
 // const promoteUrl = 'https://test-h5.ximi.world/pages/promote?mode=1' // 推广
+// const welfareUrl = 'https://test-h5.ximi.world/promote/welfare' // 发现金
 
 // 正式环境
 const botToken = '6998202214:AAE3YW0fMx-Q5zAF8nlJPuTdPI7VMi0iRLU' // FF机器人ID
@@ -17,20 +18,17 @@ const groupUrl = 'https://t.me/FutureFunGenesisOfficial' // 群组链接
 const homeUrl = 'https://ff.zone/' // 主页
 const walletUrl = 'https://ff.zone/pages/wallet' // 钱包
 const promoteUrl = 'https://ff.zone/pages/promote?mode=1' // 推广
+const welfareUrl = 'https://ff.zone/promote/welfare' // 发现金
 
 const channelUrl = 'https://t.me/FutureFunOfficial' // TG频道
 const paperUrl = 'https://ff-whitepaper.ff.zone/' // 白皮书
 
 const bot = new Bot(botToken)
 // 快捷消息列表
-const commandList = [
-  { command: 'start', description: 'Start the bot' },
-  { command: 'invite', description: 'Invite a friend' },
-  { command: 'help', description: 'Show help text' },
-]
+const commandList = [{ command: 'start', description: 'Start the bot' }]
 
 // 指令列表
-const instructList = ['start', 'invite', 'help']
+const instructList = ['start']
 
 // 字符串转base64
 const encode = (str) => {
@@ -42,22 +40,13 @@ const encode = (str) => {
 // 答复数据
 const languageObj = {
   start: {
-    photo: 'https://test-h5.ximi.world/static/img/telegram/picture2.png',
+    photo: 'https://test-h5.ximi.world/static/img/telegram/banner.gif',
     caption:
-      'Thank you for choosing us! The platform coin airdrop is about to begin. The earlier you join, the more advantageous the coin offering! \nDeposit ≥100 USDT on the platform and receive up to 105% equivalent in WCT. Deposit 100 USDT and get 205 USDT (100 USDT + value of 105 USDT in WCT). Buy more, get more with no upper limit. \nCurrent estimate: <b>1 WCT ≈ 1 USDT</b>, next time estimate: 1 WCT ≈ 1.02 USDT. Take advantage of the rising WCT coin price. Acquire at the highest 105% gift ratio before the adjustment for more advantages. Stay ahead in wealth accumulation. \nJoin the community during the public testing period to enjoy exclusive benefits. What are you waiting for? Come and join the fun!',
-  },
-  invite: {
-    photo: 'https://test-h5.ximi.world/static/img/telegram/picture3.png',
-    caption:
-      'Invite your friends to sign up for the platform and top up via your exclusive link.\nAfter your friend tops up successfully, you will immediately receive 2% USDT cashback.\nIf your friend participates in the game betting, you will get 49% rebate USDT cashback.🎁\nYour personal link ',
-  },
-  help: {
-    photo: '',
-    caption:
-      'Dear FuntrueFuners, if you have any issues while using our products, dot not hesitate to contact us.\nPurchase Statement\nThe FuntrunFun platform forbids users under the age of 18 to top up on the platform, and the platform has the right to refuse top-up orders from non-compliant users.\n📖 How to Register\nIf you have a Telegram account, you can automatically complete the registration by clicking on the game link, for others, please refer to the tutorial.\nLink: https://t.me/FutureFunOfficial/36\n📬 How to Mine by Invitation\nOther Common Questions\nLink: https://t.me/FutureFunOfficial/17',
+      '🎊Thank you for choosing us! 🎊 \n\n🔥🔥🔥 The platform coin airdrop is ready. Join early for the best offer! 🎉🎉🎉 \n\n📢 Share daily to invite friends for earning random USDT bonuses! Both you and your friend will gain benefit! Successful invitation and top-up get an extra 1 USDT bonus the next day! 📨💰 \n\n📢 Deposit ≥100 USDT get up to 20% bonus in WCT! \n\nDeposit 100 USDT get 120 USDT (100 USDT + 20 USDT in WCT). The more you deposit, the more you earn, no upper limit! 💰💰 \n\n📢 Current rate: 1 WCT ≈ 1 USDT \n\nNext estimate: 1 WCT ≈ 1.02 USDT. Take advantage of rising WCT prices! Acquire at the highest 20% gift ratio before adjustment. 📈💰 \n\nWhat are you waiting for? Come and join the future fun! 🚀🚀🚀',
   },
 }
 
+// USDT Bonus 发现金
 // Deposit Now —— TG平台钱包主页
 // Play Now ——TG平台主页
 // Join the Community —— 平台TG频道
@@ -66,14 +55,16 @@ const languageObj = {
 
 // start 指令
 const keyboard1 = new InlineKeyboard()
-  .webApp('Deposit Now', walletUrl)
+  .webApp('💰USDT Bonus💰', welfareUrl)
   .row()
-  .webApp('Play now', homeUrl)
+  .webApp('💳Deposit Now💳', walletUrl)
   .row()
-  .url('Join the Community', channelUrl)
-  .url('Whitepaper', paperUrl)
+  .webApp('🎮Play now🎰', homeUrl)
   .row()
-  .url('Online Customer Service', groupUrl)
+  .url('Join the Community🤝', channelUrl)
+  .url('Whitepaper📄', paperUrl)
+  .row()
+  .url('Online Customer Service💬', groupUrl)
 
 // invite指令
 const keyboard2 = new InlineKeyboard()
@@ -119,18 +110,6 @@ bot.command(instructList, async (ctx: any) => {
       parse_mode: 'HTML',
       reply_markup: keyboard1,
       ...languageObj?.start,
-    })
-  } else if (text.includes('invite')) {
-    await bot.api.sendPhoto(chatId, '', {
-      parse_mode: 'HTML',
-      reply_markup: keyboard2,
-      ...languageObj?.invite,
-      caption: languageObj?.invite.caption + inviteUrl,
-    })
-  } else if (text.includes('help')) {
-    await bot.api.sendMessage(chatId, languageObj?.help.caption, {
-      parse_mode: 'HTML',
-      reply_markup: keyboard3,
     })
   }
 })
