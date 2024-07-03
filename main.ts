@@ -40,9 +40,9 @@ const encode = (str) => {
 // 答复数据
 const languageObj = {
   start: {
-    photo: 'https://test-h5.ximi.world/static/img/telegram/banner.gif',
+    animation: 'https://test-h5.ximi.world/static/img/telegram/banner.gif',
     caption:
-      '🎊Thank you for choosing us! 🎊 \n\n🔥🔥🔥 The platform coin airdrop is ready. Join early for the best offer! 🎉🎉🎉 \n\n📢 Share daily to invite friends for earning random USDT bonuses! Both you and your friend will gain benefit! Successful invitation and top-up get an extra 1 USDT bonus the next day! 📨💰 \n\n📢 Deposit ≥100 USDT get up to 20% bonus in WCT! \n\nDeposit 100 USDT get 120 USDT (100 USDT + 20 USDT in WCT). The more you deposit, the more you earn, no upper limit! 💰💰 \n\n📢 Current rate: 1 WCT ≈ 1 USDT \n\nNext estimate: 1 WCT ≈ 1.02 USDT. Take advantage of rising WCT prices! Acquire at the highest 20% gift ratio before adjustment. 📈💰 \n\nWhat are you waiting for? Come and join the future fun! 🚀🚀🚀',
+      '🔥🔥🔥 The platform coin airdrop is ready. Join early for the best offer! 🎉🎉🎉  \n\n📢 Share daily to invite friends for earning random USDT bonuses! Both you and your friend will gain benefit! Successful invitation and top-up get an extra 1 USDT bonus the next day! 📨💰  \n\n📢 Deposit ≥100 USDT get up to 20% bonus in WCT!  \n\nDeposit 100 USDT get 120 USDT (100 USDT + 20 USDT in WCT). The more you deposit, the more you earn, no upper limit! 💰💰  \n\nWhat are you waiting for? Come and join the future fun! 🚀🚀🚀',
   },
 }
 
@@ -106,7 +106,7 @@ bot.command(instructList, async (ctx: any) => {
   console.log('【邀请链接】', inviteUrl)
 
   if (text.includes('start')) {
-    await bot.api.sendPhoto(chatId, '', {
+    await bot.api.sendAnimation(chatId, '', {
       parse_mode: 'HTML',
       reply_markup: keyboard1,
       ...languageObj?.start,
