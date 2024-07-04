@@ -46,6 +46,8 @@ const languageObj = {
   },
 }
 
+console.log(languageObj)
+
 // USDT Bonus 发现金
 // Deposit Now —— TG平台钱包主页
 // Play Now ——TG平台主页
