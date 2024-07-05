@@ -9,6 +9,7 @@ import { Bot, InlineKeyboard } from 'https://deno.land/x/grammy@v1.24.0/mod.ts'
 // const walletUrl = 'https://test-h5.ximi.world/pages/wallet' // 钱包
 // const promoteUrl = 'https://test-h5.ximi.world/pages/promote?mode=1' // 推广
 // const welfareUrl = 'https://test-h5.ximi.world/promote/welfare' // 发现金
+// const luckToken = 'iV2SVTTTkXmVjtNBs0Lq' // haiyanstar_bot 抽奖token
 
 // 正式环境
 const botToken = '6998202214:AAE3YW0fMx-Q5zAF8nlJPuTdPI7VMi0iRLU' // FF机器人ID
@@ -19,6 +20,7 @@ const homeUrl = 'https://ff.zone/' // 主页
 const walletUrl = 'https://ff.zone/pages/wallet' // 钱包
 const promoteUrl = 'https://ff.zone/pages/promote?mode=1' // 推广
 const welfareUrl = 'https://ff.zone/promote/welfare' // 发现金
+const luckToken = 'EAKQimQtSm2kFZmnMkMz' // FutureFun_earningwct_bot 抽奖token
 
 const channelUrl = 'https://t.me/FutureFunOfficial' // TG频道
 const paperUrl = 'https://ff-whitepaper.ff.zone/' // 白皮书
@@ -35,6 +37,13 @@ const encode = (str) => {
   let _str = encodeURI(str)
   let base64 = btoa(_str)
   return base64
+}
+
+// base64转字符串
+const decode = (base64) => {
+  let _base64 = atob(base64)
+  let str = decodeURI(_base64)
+  return str
 }
 
 // 答复数据
@@ -106,6 +115,24 @@ bot.command(instructList, async (ctx: any) => {
   console.log('【邀请链接】', inviteUrl)
 
   if (text.includes('start')) {
+    if (text.includes('Base64_')) {
+      const params = text.replace('/start Base64_', '')
+      console.log(params)
+      const str = decode(params)
+      console.log(str)
+
+      // 使用fetch发送GET请求
+      fetch('https://api.moquest.xyz/partner/bot/callback?' + str, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'LDM-API-TOKEN': luckToken,
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => console.log('【回调成功】', data))
+        .catch((error) => console.error('【回调失败】', error))
+    }
     await bot.api.sendAnimation(chatId, '', {
       parse_mode: 'HTML',
       reply_markup: keyboard1,
