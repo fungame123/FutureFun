@@ -2,10 +2,10 @@ import { Bot, InlineKeyboard } from 'https://deno.land/x/grammy@v1.24.0/mod.ts'
 
 // 外测环境
 // const botToken = '7388996011:AAHnWNmEBm66fwt_twpY9i3KPzxHX9vkolI' // 蒙娜丽莎机器人ID
-// const botUrl = `https://t.me/haiyanstar_bot/` // 机器人链接
-// const miniAppUrl = 'https://t.me/haiyanstar_bot/ximi/' // 小程序链接
+// const botUrl = `https://t.me/haiyanstar_bot` // 机器人链接
+// const miniAppUrl = 'https://t.me/haiyanstar_bot/ximi' // 小程序链接
 // const groupUrl = 'https://t.me/FutureFunGenesisOfficial' // 群组链接
-// const homeUrl = 'https://test-h5.ximi.world/' // 主页
+// const homeUrl = 'https://test-h5.ximi.world' // 主页
 // const walletUrl = 'https://test-h5.ximi.world/pages/wallet' // 钱包
 // const promoteUrl = 'https://test-h5.ximi.world/pages/promote?mode=1' // 推广
 // const welfareUrl = 'https://test-h5.ximi.world/promote/welfare' // 发现金
@@ -13,17 +13,17 @@ import { Bot, InlineKeyboard } from 'https://deno.land/x/grammy@v1.24.0/mod.ts'
 
 // 正式环境
 const botToken = '6998202214:AAE3YW0fMx-Q5zAF8nlJPuTdPI7VMi0iRLU' // FF机器人ID
-const botUrl = `https://t.me/FutureFun_earningwct_bot/` // 机器人链接
-const miniAppUrl = 'https://t.me/FutureFun_earningwct_bot/FutureFun/' // 小程序链接
+const botUrl = `https://t.me/FutureFun_earningwct_bot` // 机器人链接
+const miniAppUrl = 'https://t.me/FutureFun_earningwct_bot/FutureFun' // 小程序链接
 const groupUrl = 'https://t.me/FutureFunGenesisOfficial' // 群组链接
-const homeUrl = 'https://ff.zone/' // 主页
+const homeUrl = 'https://ff.zone' // 主页
 const walletUrl = 'https://ff.zone/pages/wallet' // 钱包
 const promoteUrl = 'https://ff.zone/pages/promote?mode=1' // 推广
 const welfareUrl = 'https://ff.zone/promote/welfare' // 发现金
 const luckToken = 'EAKQimQtSm2kFZmnMkMz' // FutureFun_earningwct_bot 抽奖token
 
 const channelUrl = 'https://t.me/FutureFunOfficial' // TG频道
-const paperUrl = 'https://ff-whitepaper.ff.zone/' // 白皮书
+const paperUrl = 'https://ff-whitepaper.ff.zone' // 白皮书
 
 const bot = new Bot(botToken)
 // 快捷消息列表
@@ -49,7 +49,7 @@ const decode = (base64) => {
 // 答复数据
 const languageObj = {
   start: {
-    animation: 'https://test-h5.ximi.world/static/img/telegram/xiaolu.gif',
+    animation: 'https://test-h5.ximi.world/static/img/telegram/lulu.gif',
     caption:
       '🔥🔥🔥 The platform coin airdrop is ready. Join early for the best offer! 🎉🎉🎉  \n\n📢 Share daily to invite friends for earning random USDT bonuses! Both you and your friend will gain benefit! Successful invitation and top-up get an extra 1 USDT bonus the next day! 📨💰  \n\n📢 Deposit ≥100 USDT get up to 20% bonus in WCT!  \n\nDeposit 100 USDT get 120 USDT (100 USDT + 20 USDT in WCT). The more you deposit, the more you earn, no upper limit! 💰💰  \n\nWhat are you waiting for? Come and join the future fun! 🚀🚀🚀',
   },
