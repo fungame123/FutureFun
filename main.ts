@@ -49,7 +49,7 @@ const decode = (base64) => {
 // 答复数据
 const languageObj = {
   start: {
-    phtot: 'https://test-h5.ximi.world/static/img/telegram/ff.jpg',
+    photo: 'https://test-h5.ximi.world/static/img/telegram/ff.jpg',
     caption:
       '🔥🔥🔥 The platform coin airdrop is ready. Join early for the best offer! 🎉🎉🎉  \n\n📢 Deposit ≥100 USDT get up to 20% bonus in WCT!  \n\nDeposit 100 USDT get 120 USDT (100 USDT + 20 USDT in WCT). The more you deposit, the more you earn, no upper limit! 💰💰 \n\n What are you waiting for? Come and join the future fun! 🚀🚀🚀',
   },
