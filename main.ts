@@ -49,9 +49,9 @@ const decode = (base64) => {
 // 答复数据
 const languageObj = {
   start: {
-    animation: 'https://test-h5.ximi.world/static/img/telegram/xl.gif',
+    phtot: 'https://test-h5.ximi.world/static/img/telegram/ff.jpg',
     caption:
-      '🔥🔥🔥 The platform coin airdrop is ready. Join early for the best offer! 🎉🎉🎉  \n\n📢 Share daily to invite friends for earning random USDT bonuses! Both you and your friend will gain benefit! Successful invitation and top-up get an extra 1 USDT bonus the next day! 📨💰  \n\n📢 Deposit ≥100 USDT get up to 20% bonus in WCT!  \n\nDeposit 100 USDT get 120 USDT (100 USDT + 20 USDT in WCT). The more you deposit, the more you earn, no upper limit! 💰💰  \n\nWhat are you waiting for? Come and join the future fun! 🚀🚀🚀',
+      '🔥🔥🔥 The platform coin airdrop is ready. Join early for the best offer! 🎉🎉🎉  \n\n📢 Deposit ≥100 USDT get up to 20% bonus in WCT!  \n\nDeposit 100 USDT get 120 USDT (100 USDT + 20 USDT in WCT). The more you deposit, the more you earn, no upper limit! 💰💰 \n\n What are you waiting for? Come and join the future fun! 🚀🚀🚀',
   },
 }
 
@@ -63,10 +63,7 @@ const languageObj = {
 // Online Customer Service ——官方群
 
 // start 指令
-const keyboard1 = new InlineKeyboard()
-  .webApp('💰USDT Bonus💰', welfareUrl)
-  .row()
-  .webApp('🎮Play now🎰', homeUrl)
+const keyboard1 = new InlineKeyboard().webApp('🎮Play now🎰', homeUrl)
 
 // const keyboard1 = new InlineKeyboard()
 //   .webApp('💰USDT Bonus💰', welfareUrl)
@@ -138,7 +135,7 @@ bot.command(instructList, async (ctx: any) => {
         .then((data) => console.log('【回调成功】', data))
         .catch((error) => console.error('【回调失败】', error))
     }
-    await bot.api.sendAnimation(chatId, '', {
+    await bot.api.sendPhoto(chatId, '', {
       parse_mode: 'HTML',
       reply_markup: keyboard1,
       ...languageObj?.start,
